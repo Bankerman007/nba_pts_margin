@@ -1,5 +1,5 @@
 import pandas as pd
-import send_text
+from send_SMS import sms_all
 
 def main():
 
@@ -10,8 +10,12 @@ def main():
     'New Orleans','Indiana','Charlotte', 'Memphis'
 
     for t in teams:
-    
-        scraper = pd.read_html('https://scores.nbcsports.com/nba/scoreboard.asp?meta=true', match= t)
+        try:
+            scraper = pd.read_html('https://scores.nbcsports.com/nba/scoreboard.asp?meta=true', match= t)
+        except ValueError:
+            continue
+        if 't'.isalpha():
+            continue
         row = pd.concat(scraper)
         new = row.head(4)
         neww = new.tail(2)
@@ -27,7 +31,7 @@ def main():
         margin = abs(margin)
         print(margin)
         if margin > 18:
-            send_text()
+            sms_all()
             break
 
 if __name__ == "__main__":
