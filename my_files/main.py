@@ -10,12 +10,14 @@ def main():
     'New Orleans','Indiana','Charlotte', 'Memphis'
 
     for t in teams:
-        try:
-            scraper = pd.read_html('https://scores.nbcsports.com/nba/scoreboard.asp?meta=true', match= t)
-        except ValueError:
-            continue
-        if 't'.isalpha():
-            continue
+        
+        #try:
+        scraper = pd.read_html('https://scores.nbcsports.com/nba/scoreboard.asp?meta=true', match= t)
+            
+        # except ValueError:
+        #     continue
+        # if 't'.isalpha():
+        #     continue
         row = pd.concat(scraper)
         new = row.head(4)
         neww = new.tail(2)
@@ -34,8 +36,7 @@ def main():
             sms_all()
             break
 
-if __name__ == '__main__':
-    main()
+main()
 
 
 
