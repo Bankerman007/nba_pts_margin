@@ -36,7 +36,7 @@ def main():
         margin = score1 - score2
         margin = abs(margin)
         print(margin)
-        if margin > 15:
+        if margin > 8:
             sms_all()
             break
         else:
