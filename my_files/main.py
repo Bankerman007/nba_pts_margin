@@ -24,8 +24,12 @@ def main():
         team1 = neww.iloc[0,5]
         new1 = neww.iloc[1,5]
         
-        frames = [float(team1), float(new1)]
-        
+        try:
+
+            frames = [float(team1), float(new1)]
+
+        except ValueError:
+            continue        
         
         score1 = frames[0]
         score2 = frames[1]
