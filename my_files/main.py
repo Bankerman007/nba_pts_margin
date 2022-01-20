@@ -13,11 +13,11 @@ def main():
         
         try:
             scraper = pd.read_html('https://scores.nbcsports.com/nba/scoreboard.asp?meta=true', match= t)
-           
+               
         except ValueError:
             continue
-        if 't'.isalpha():
-            continue
+        # if 't'.isalpha():
+        #     continue
         row = pd.concat(scraper)
         new = row.head(4)
         neww = new.tail(2)
@@ -32,7 +32,7 @@ def main():
         margin = score1 - score2
         margin = abs(margin)
         print(margin)
-        if margin > 18:
+        if margin > 15:
             sms_all()
             break
         else:
