@@ -18,7 +18,7 @@ def sms_all():
         .create(
                 body="there's a game over xx",
                 from_='+16467989631',
-                to= '+18475323886''+12246783528',
+                to= '+18475323886'+'+12246783528',
             )
     print(message.sid)
 

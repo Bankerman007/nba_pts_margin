@@ -13,7 +13,7 @@ def main():
         
         try:
             scraper = pd.read_html('https://scores.nbcsports.com/nba/scoreboard.asp?meta=true', match= t)
-               
+            print(scraper)  
         except ValueError:
             continue
         # if 't'.isalpha():
@@ -27,6 +27,7 @@ def main():
         try:
 
             frames = [float(team1), float(new1)]
+            print(frames)
 
         except ValueError:
             continue        
